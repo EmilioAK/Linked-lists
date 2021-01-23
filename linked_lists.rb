@@ -50,7 +50,8 @@ class LinkedList
   end
 
   def pop(node = @head)
-    if node.next_node.next_node == @tail
+    curr_node = node.next_node
+    if curr_node.next_node == @tail
       node.next_node = @tail
     else
       pop(node.next_node)
@@ -77,9 +78,9 @@ class LinkedList
 
   def to_s(string = '', node = @head.next_node)
     if node.next_node
-      to_s(string + "( #{node.value} ) - >", node.next_node)
+      to_s(string + "( #{node.value} ) - > ", node.next_node)
     else
-      "#{string} nil"
+      "#{string}nil"
     end
   end
 
